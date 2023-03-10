@@ -11,18 +11,18 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     public void zaloguj(View view){
-        Log.d("MainActivity", "zaloguj method called");
         //Intent intencja = new Intent(this, loginactivity.class);
-        Toast.makeText(this,"dsadsadasd",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"zalogowano",Toast.LENGTH_SHORT).show();
         Intent i = new Intent(this,mainpage.class);
         startActivity(i);
-        i.putExtra("no siema","dsada");
-        EditText login = (EditText) findViewById(R.id.editTextTextEmailAddress);
-        EditText password = (EditText) findViewById(R.id.editTextTextEmailAddress);
+//        EditText login = (EditText) findViewById(R.id.editTextTextEmailAddress);
+//        EditText password = (EditText) findViewById(R.id.editTextTextEmailAddress);
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        getSupportActionBar().hide();
     }
 }

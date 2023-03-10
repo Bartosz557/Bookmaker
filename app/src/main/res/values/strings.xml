@@ -3,4 +3,23 @@
     <string name="mail">e-mail</string>
     <string name="pass">hasło</string>
     <string name="login">zaloguj</string>
+    <string name="points">0</string>
+
+    mainpage - kategorie
+    <string name="football">Piłka Nożna</string>
+    <string name="tennis">Tennis</string>
+    <string name="basketball">Koszykówka</string>
+    <string name="mma">Mixed Martial Arts</string>
+    <string name="golf">Golf</string>
+    <string name="politics">Polityka</string>
+    <string name="hockey">Hokej</string>
+    <string name="am_footbal">Football Amerykański</string>
+    <string name="Aus_football">Football Australijski</string>
+    <string name="rugby">Rugby</string>
+    <string name="baseball">Baseball</string>
+    <string name="cricket">Krykiet</string>
+
+
+
+
 </resources>
