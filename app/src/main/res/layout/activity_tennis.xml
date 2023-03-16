@@ -24,7 +24,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="330dp"
-        android:layout_height="wrap_content"
+        android:layout_height="602dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="40dp"
@@ -98,38 +98,6 @@
             android:backgroundTint="#3C53CF"
             android:onClick="footballaus"
             android:text="@string/Aus_football" />
-
-        <Button
-            android:id="@+id/rugby"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="#3C53CF"
-            android:onClick="rugby"
-            android:text="@string/rugby" />
-
-        <Button
-            android:id="@+id/baseball"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="#3C53CF"
-            android:onClick="baseball"
-            android:text="@string/baseball" />
-
-        <Button
-            android:id="@+id/cricket"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="#3C53CF"
-            android:onClick="krykiet"
-            android:text="@string/cricket" />
-
-        <Button
-            android:id="@+id/politics"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="#3C53CF"
-            android:onClick="polityka"
-            android:text="@string/politics" />
 
     </LinearLayout>
 

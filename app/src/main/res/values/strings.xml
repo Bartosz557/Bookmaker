@@ -19,7 +19,55 @@
     <string name="baseball">Baseball</string>
     <string name="cricket">Krykiet</string>
 
-
+    football - ligi
+    <string name="soccer_argentina_primera_division">	Primera División - Argentina	</string>
+    <string name="soccer_australia_aleague">	A-League	</string>
+    <string name="soccer_austria_bundesliga">	Austrian Football Bundesliga	</string>
+    <string name="soccer_belgium_first_div">	Belgium First Div	</string>
+    <string name="soccer_brazil_campeonato">	Brazil Série A	</string>
+    <string name="soccer_brazil_serie_b">	Brazil Série B	</string>
+    <string name="soccer_chile_campeonato">	Primera División - Chile	</string>
+    <string name="soccer_china_superleague">	Super League - China	</string>
+    <string name="soccer_denmark_superliga">	Denmark Superliga	</string>
+    <string name="soccer_efl_champ">	Championship	</string>
+    <string name="soccer_england_efl_cup">	EFL Cup	</string>
+    <string name="soccer_england_league1">	League 1	</string>
+    <string name="soccer_england_league2">	League 2	</string>
+    <string name="soccer_epl">	Premier League - England	</string>
+    <string name="soccer_fa_cup">	FA Cup	</string>
+    <string name="soccer_fifa_world_cup">	FIFA World Cup	</string>
+    <string name="soccer_fifa_world_cup_winner">	FIFA World Cup Winner	</string>
+    <string name="soccer_finland_veikkausliiga">	Veikkausliiga - Finland	</string>
+    <string name="soccer_france_ligue_one">	Ligue 1 - France	</string>
+    <string name="soccer_france_ligue_two">	Ligue 2 - France	</string>
+    <string name="soccer_germany_bundesliga">	Bundesliga - Germany	</string>
+    <string name="soccer_germany_bundesliga2">	Bundesliga 2 - Germany	</string>
+    <string name="soccer_germany_liga3">	3. Liga - Germany	</string>
+    <string name="soccer_greece_super_league">	Super League - Greece	</string>
+    <string name="soccer_italy_serie_a">	Serie A - Italy	</string>
+    <string name="soccer_italy_serie_b">	Serie B - Italy	</string>
+    <string name="soccer_japan_j_league">	J League	</string>
+    <string name="soccer_korea_kleague1">	K League 1	</string>
+    <string name="soccer_league_of_ireland">	League of Ireland	</string>
+    <string name="soccer_mexico_ligamx">	Liga MX	</string>
+    <string name="soccer_netherlands_eredivisie">	Dutch Eredivisie	</string>
+    <string name="soccer_norway_eliteserien">	Eliteserien - Norway	</string>
+    <string name="soccer_poland_ekstraklasa">	Ekstraklasa - Poland	</string>
+    <string name="soccer_portugal_primeira_liga">	Primeira Liga - Portugal	</string>
+    <string name="soccer_russia_premier_league">	Premier League - Russia	</string>
+    <string name="soccer_spain_la_liga">	La Liga - Spain	</string>
+    <string name="soccer_spain_segunda_division">	La Liga 2 - Spain	</string>
+    <string name="soccer_spl">	Premiership - Scotland	</string>
+    <string name="soccer_sweden_allsvenskan">	Allsvenskan - Sweden	</string>
+    <string name="soccer_sweden_superettan">	Superettan - Sweden	</string>
+    <string name="soccer_switzerland_superleague">	Swiss Superleague	</string>
+    <string name="soccer_turkey_super_league">	Turkey Super League	</string>
+    <string name="soccer_uefa_europa_conference_league">	UEFA Europa Conference League	</string>
+    <string name="soccer_uefa_champs_league">	UEFA Champions League	</string>
+    <string name="soccer_uefa_europa_league">	UEFA Europa League	</string>
+    <string name="soccer_uefa_nations_league">	UEFA Nations League	</string>
+    <string name="soccer_conmebol_copa_libertadores">	Copa Libertadores	</string>
+    <string name="soccer_usa_mls">	MLS	</string>
 
 
 </resources>

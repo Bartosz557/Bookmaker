@@ -12,6 +12,42 @@
         android:theme="@style/Theme.Bookmaker"
         tools:targetApi="31">
         <activity
+            android:name=".polityka"
+            android:exported="false" />
+        <activity
+            android:name=".krykiet"
+            android:exported="false" />
+        <activity
+            android:name=".baseball"
+            android:exported="false" />
+        <activity
+            android:name=".rugby"
+            android:exported="false" />
+        <activity
+            android:name=".footballAUS"
+            android:exported="false" />
+        <activity
+            android:name=".footballUS"
+            android:exported="false" />
+        <activity
+            android:name=".hokej"
+            android:exported="false" />
+        <activity
+            android:name=".golf"
+            android:exported="false" />
+        <activity
+            android:name=".mma"
+            android:exported="false" />
+        <activity
+            android:name=".koszykowka"
+            android:exported="false" />
+        <activity
+            android:name=".tennis"
+            android:exported="false" />
+        <activity
+            android:name=".football"
+            android:exported="false" />
+        <activity
             android:name=".mainpage"
             android:exported="false" />
         <activity
