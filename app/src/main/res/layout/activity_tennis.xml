@@ -41,23 +41,7 @@
             android:layout_height="50dp"
             android:backgroundTint="#3C53CF"
             android:onClick="football"
-            android:text="@string/football" />
-
-        <Button
-            android:id="@+id/tennis"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="#3C53CF"
-            android:onClick="tennis"
-            android:text="@string/tennis" />
-
-        <Button
-            android:id="@+id/basketball"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="#3C53CF"
-            android:onClick="koszykowka"
-            android:text="@string/basketball" />
+            android:text="@string/tennis_atp_wimbledon" />
 
         <Button
             android:id="@+id/mma"
@@ -65,31 +49,23 @@
             android:layout_height="50dp"
             android:backgroundTint="#3C53CF"
             android:onClick="mma"
-            android:text="@string/mma" />
+            android:text="@string/tennis_atp_aus_open_singles" />
 
         <Button
-            android:id="@+id/golf"
+            android:id="@+id/basketball"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:backgroundTint="#3C53CF"
-            android:onClick="golf"
-            android:text="@string/golf" />
+            android:onClick="koszykowka"
+            android:text="@string/tennis_atp_us_open" />
 
         <Button
-            android:id="@+id/hockey"
+            android:id="@+id/tennis"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:backgroundTint="#3C53CF"
-            android:onClick="hokej"
-            android:text="@string/hockey" />
-
-        <Button
-            android:id="@+id/american_football"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="#3C53CF"
-            android:onClick="footballus"
-            android:text="@string/am_footbal" />
+            android:onClick="tennis"
+            android:text="@string/tennis_atp_french_open" />
 
         <Button
             android:id="@+id/australian_football"
@@ -97,7 +73,31 @@
             android:layout_height="50dp"
             android:backgroundTint="#3C53CF"
             android:onClick="footballaus"
-            android:text="@string/Aus_football" />
+            android:text="@string/tennis_wta_wimbledon" />
+
+        <Button
+            android:id="@+id/golf"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:backgroundTint="#3C53CF"
+            android:onClick="golf"
+            android:text="@string/tennis_wta_aus_open_singles" />
+
+        <Button
+            android:id="@+id/american_football"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:backgroundTint="#3C53CF"
+            android:onClick="footballus"
+            android:text="@string/tennis_wta_us_open" />
+
+        <Button
+            android:id="@+id/hockey"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:backgroundTint="#3C53CF"
+            android:onClick="hokej"
+            android:text="@string/tennis_wta_french_open" />
 
     </LinearLayout>
 

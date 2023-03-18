@@ -41,7 +41,7 @@
             android:layout_height="50dp"
             android:backgroundTint="#3C53CF"
             android:onClick="football"
-            android:text="@string/football" />
+            android:text="@string/cricket_big_bash" />
 
         <Button
             android:id="@+id/tennis"
@@ -49,7 +49,7 @@
             android:layout_height="50dp"
             android:backgroundTint="#3C53CF"
             android:onClick="tennis"
-            android:text="@string/tennis" />
+            android:text="@string/cricket_caribbean_premier_league" />
 
         <Button
             android:id="@+id/basketball"
@@ -57,7 +57,7 @@
             android:layout_height="50dp"
             android:backgroundTint="#3C53CF"
             android:onClick="koszykowka"
-            android:text="@string/basketball" />
+            android:text="@string/cricket_icc_world_cup" />
 
         <Button
             android:id="@+id/mma"
@@ -65,7 +65,7 @@
             android:layout_height="50dp"
             android:backgroundTint="#3C53CF"
             android:onClick="mma"
-            android:text="@string/mma" />
+            android:text="@string/cricket_international_t20" />
 
         <Button
             android:id="@+id/golf"
@@ -73,7 +73,7 @@
             android:layout_height="50dp"
             android:backgroundTint="#3C53CF"
             android:onClick="golf"
-            android:text="@string/golf" />
+            android:text="@string/cricket_ipl" />
 
         <Button
             android:id="@+id/hockey"
@@ -81,7 +81,7 @@
             android:layout_height="50dp"
             android:backgroundTint="#3C53CF"
             android:onClick="hokej"
-            android:text="@string/hockey" />
+            android:text="@string/cricket_odi" />
 
         <Button
             android:id="@+id/american_football"
@@ -89,15 +89,7 @@
             android:layout_height="50dp"
             android:backgroundTint="#3C53CF"
             android:onClick="footballus"
-            android:text="@string/am_footbal" />
-
-        <Button
-            android:id="@+id/australian_football"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="#3C53CF"
-            android:onClick="footballaus"
-            android:text="@string/Aus_football" />
+            android:text="@string/cricket_psl" />
 
     </LinearLayout>
 

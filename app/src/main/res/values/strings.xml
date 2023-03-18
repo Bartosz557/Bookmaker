@@ -68,6 +68,21 @@
     <string name="soccer_uefa_nations_league">	UEFA Nations League	</string>
     <string name="soccer_conmebol_copa_libertadores">	Copa Libertadores	</string>
     <string name="soccer_usa_mls">	MLS	</string>
+    <string name="tennis_wta_wimbledon">WTA Wimbledon</string>
+    <string name="tennis_wta_us_open">WTA US Open</string>
+    <string name="tennis_wta_french_open">WTA French Open</string>
+    <string name="tennis_wta_aus_open_singles">WTA Australian Open</string>
+    <string name="tennis_atp_wimbledon">ATP Wimbledon</string>
+    <string name="tennis_atp_us_open">ATP US Open</string>
+    <string name="tennis_atp_french_open">ATP French Open</string>
+    <string name="tennis_atp_aus_open_singles">ATP Australian Open</string>
+    <string name="cricket_psl">Pakistan Super League</string>
+    <string name="cricket_odi">One Day Internationals</string>
+    <string name="cricket_ipl">IPL</string>
+    <string name="cricket_international_t20">International Twenty20</string>
+    <string name="cricket_icc_world_cup">ICC World Cup</string>
+    <string name="cricket_caribbean_premier_league">Caribbean Premier League</string>
+    <string name="cricket_big_bash">Big Bash</string>
 
 
 </resources>

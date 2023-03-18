@@ -2,145 +2,16 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#1C33AF"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mainpage">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
-        android:layout_width="393dp"
-        android:layout_height="75dp"
-        android:background="#051A9F"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="1.0">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="23dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
-
-        <Button
-            android:id="@+id/football"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="#3C53CF"
-            android:onClick="football"
-            android:text="@string/football" />
-
-        <Button
-            android:id="@+id/tennis"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="#3C53CF"
-            android:onClick="tennis"
-            android:text="@string/tennis" />
-
-        <Button
-            android:id="@+id/basketball"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="#3C53CF"
-            android:onClick="koszykowka"
-            android:text="@string/basketball" />
-
-        <Button
-            android:id="@+id/mma"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="#3C53CF"
-            android:onClick="mma"
-            android:text="@string/mma" />
-
-        <Button
-            android:id="@+id/golf"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="#3C53CF"
-            android:onClick="golf"
-            android:text="@string/golf" />
-
-        <Button
-            android:id="@+id/hockey"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="#3C53CF"
-            android:onClick="hokej"
-            android:text="@string/hockey" />
-
-        <Button
-            android:id="@+id/american_football"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="#3C53CF"
-            android:onClick="footballus"
-            android:text="@string/am_footbal" />
-
-        <Button
-            android:id="@+id/australian_football"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="#3C53CF"
-            android:onClick="footballaus"
-            android:text="@string/Aus_football" />
-
-        <Button
-            android:id="@+id/rugby"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="#3C53CF"
-            android:onClick="rugby"
-            android:text="@string/rugby" />
-
-        <Button
-            android:id="@+id/baseball"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="#3C53CF"
-            android:onClick="baseball"
-            android:text="@string/baseball" />
-
-        <Button
-            android:id="@+id/cricket"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="#3C53CF"
-            android:onClick="krykiet"
-            android:text="@string/cricket" />
-
-        <Button
-            android:id="@+id/politics"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="#3C53CF"
-            android:onClick="polityka"
-            android:text="@string/politics" />
-
-    </LinearLayout>
+    android:background="#1C33AF"
+    tools:context=".football">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="393dp"
         android:layout_height="60dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="3dp"
         android:background="#051A9F"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -195,5 +66,37 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.545" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="393dp"
+        android:layout_height="75dp"
+        android:background="#051A9F"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="1.0"></androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="333dp"
+        android:layout_height="623dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

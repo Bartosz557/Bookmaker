@@ -20,6 +20,8 @@ public class mainpage extends AppCompatActivity {
         super.onPause();
         overridePendingTransition(0, 0);
     }
+
+    //buttons
     public void football(View view)
     {
         Intent i = new Intent(this,football.class);
