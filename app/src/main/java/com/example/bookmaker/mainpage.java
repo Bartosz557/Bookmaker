@@ -24,6 +24,7 @@ public class mainpage extends AppCompatActivity {
     //buttons
     public void football(View view)
     {
+
         Intent i = new Intent(this,football.class);
         startActivity(i);
     }
