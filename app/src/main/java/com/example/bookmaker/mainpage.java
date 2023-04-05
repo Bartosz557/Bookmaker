@@ -1,10 +1,12 @@
 package com.example.bookmaker;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.util.Log;
 
 public class mainpage extends AppCompatActivity {
 
@@ -24,6 +26,12 @@ public class mainpage extends AppCompatActivity {
     //buttons
     public void football(View view)
     {
+/// kdjhfdsjkhfdasfhkafhksalhf gson!!!
+                String data="{'foo':'bar','coolness':2.0, 'altitude':39000,'mission':'apollo 11'}";
+                JsonObject jobj = new Gson().fromJson(data, JsonObject.class);
+                String x = jobj.get("foo").getAsString();
+        Log.d("TAG", x);
+
         Intent i = new Intent(this,football.class);
         startActivity(i);
     }
