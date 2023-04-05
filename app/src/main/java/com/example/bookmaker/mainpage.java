@@ -26,7 +26,7 @@ public class mainpage extends AppCompatActivity {
     //buttons
     public void football(View view)
     {
-/// kdjhfdsjkhfdasfhkafhksalhf gson!!!
+  /// kdjhfdsjkhfdasfhkafhksalhf gson!!!
                 String data="{'foo':'bar','coolness':2.0, 'altitude':39000,'mission':'apollo 11'}";
                 JsonObject jobj = new Gson().fromJson(data, JsonObject.class);
                 String x = jobj.get("foo").getAsString();
