@@ -21,5 +21,7 @@ public class footballUSbuttoncreate  extends AppCompatActivity {
                 RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
         layout.addView(button);
+        GetOdds getOdds = new GetOdds("soccer_germany_bundesliga2");
+        getOdds.execute();
     }
 }
