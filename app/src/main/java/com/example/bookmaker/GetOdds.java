@@ -71,7 +71,7 @@ public class GetOdds extends AsyncTask<Void, Void, String> {
         if(result.length()>5) {
             DynamicButtonCreate sendevents = new DynamicButtonCreate(context, layout, result, arg);
             sendevents.getEvents();
-            emptylayout=true;
+            emptylayout=false;
         }else
         {
             if(lastarray&&emptylayout) {
@@ -79,6 +79,8 @@ public class GetOdds extends AsyncTask<Void, Void, String> {
                 Log.d("result", "break zdarzen");
             }
         }
+        Log.d("layout", Boolean.toString(emptylayout));
+
     }
 
 
