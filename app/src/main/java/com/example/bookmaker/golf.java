@@ -3,6 +3,7 @@ package com.example.bookmaker;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.LinearLayout;
 
 public class golf extends AppCompatActivity {
 
@@ -12,6 +13,8 @@ public class golf extends AppCompatActivity {
         setContentView(R.layout.activity_golf);
         overridePendingTransition(0, 0);
         getSupportActionBar().hide();
+        LinearLayout layout = findViewById(R.id.golfparent);
+        // only winners bets
     }
     @Override
     protected void onPause() {

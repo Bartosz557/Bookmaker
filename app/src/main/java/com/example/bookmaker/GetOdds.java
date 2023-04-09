@@ -1,6 +1,11 @@
 package com.example.bookmaker;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.LinearLayout;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -11,6 +16,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import java.io.IOException;
+import java.lang.invoke.ConstantCallSite;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,20 +24,29 @@ import java.util.List;
 public class GetOdds extends AsyncTask<Void, Void, String> {
 
     private String sport;
-    public GetOdds(String sport)
+    private Context context;
+    private LinearLayout layout;
+    private boolean lastarray;
+    private static boolean emptylayout=true;
+    private boolean arg;
+    public GetOdds(Context context, LinearLayout layout, String sport,boolean arg,boolean lastarray)
     {
         this.sport=sport;
+        this.context=context;
+        this.layout=layout;
+        this.arg = arg;
+        this.lastarray=lastarray;
     }
     @Override
     protected String doInBackground(Void... voids) {
         String apiKey = "484f5554525deda5862caf25af863b80";
-        String bookmakers = "betclic";
+        String regions ="eu";
         String markets = "h2h";
         String oddsFormat = "decimal";
         String dateFormat = "iso";
-        String responsebody=null;
+        String responsebody = null;
         String url = "https://api.the-odds-api.com/v4/sports/" + sport + "/odds?api_key=" + apiKey
-                + "&bookmakers=" + bookmakers + "&markets=" + markets + "&oddsFormat=" + oddsFormat + "&dateFormat=" + dateFormat;
+                + "&regions=" + regions + "&markets=" + markets + "&oddsFormat=" + oddsFormat + "&dateFormat=" + dateFormat;
         Request oddsRequest = new Request.Builder()
                 .url(url)
                 .build();
@@ -44,26 +59,27 @@ public class GetOdds extends AsyncTask<Void, Void, String> {
             e.printStackTrace();
         }
         if (oddsResponse.code() != 200) {
-            System.out.println("Failed to get odds: status_code " + oddsResponse.code() + ", response body " + oddsResponse.body());
+            Log.d("Failed to get odds: status_code ", Integer.toString(oddsResponse.code()));
         } else {
-            JsonArray jsonArray = JsonParser.parseString(responsebody).getAsJsonArray();
-
-            List<JsonObject> jsonObjectList = new ArrayList<>();
-            for (JsonElement jsonElement : jsonArray) {
-                JsonObject jsonObject = jsonElement.getAsJsonObject();
-                jsonObjectList.add(jsonObject);
-            }
-            Log.d("API Response Body", responsebody);
-            String x = jsonObjectList.get(0).get("id").getAsString();
-            Log.d("ID", x);
-            String y = jsonObjectList.get(0).get("home_team").getAsString();
-            Log.d("Home Team", y);
-
-
-            //    arguments = {"id:", "sport_key:", "sport_title:", "commence_time:", "home_team:", "away_team:", "bookmakers:", "last_update:", "markets:", "outcomes:"};
-            // usage status
+            Log.d("response", responsebody);
+            return responsebody;
         }
         return null;
     }
+    @Override
+    protected void onPostExecute(String result) {
+        if(result.length()>5) {
+            DynamicButtonCreate sendevents = new DynamicButtonCreate(context, layout, result, arg);
+            sendevents.getEvents();
+            emptylayout=true;
+        }else
+        {
+            if(lastarray&&emptylayout) {
+                NoEventsNoti.noEvents(context, layout);
+                Log.d("result", "break zdarzen");
+            }
+        }
+    }
+
 
 }

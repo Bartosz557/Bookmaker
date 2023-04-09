@@ -12,6 +12,7 @@ public class polityka extends AppCompatActivity {
         setContentView(R.layout.activity_polityka);
         overridePendingTransition(0, 0);
         getSupportActionBar().hide();
+
     }
     @Override
     protected void onPause() {
