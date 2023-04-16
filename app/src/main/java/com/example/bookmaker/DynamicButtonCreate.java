@@ -229,7 +229,6 @@ public class DynamicButtonCreate  extends AppCompatActivity {
         JsonObject outcome = outcomes.get(i).getAsJsonObject();
         return (outcome.get("price").getAsString());
     }
-
     //getting draw odd
     public JsonObject getDraw() {
         JsonArray bookmakers2 = jsonObjectList.get(eventnumber).getAsJsonArray("bookmakers");
