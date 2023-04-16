@@ -59,9 +59,21 @@ public class DynamicButtonCreate  extends AppCompatActivity {
         }
     }
 
-
+    public boolean missingOdds()
+    {
+        try {
+            jsonObjectList.get(eventnumber).getAsJsonArray("bookmakers").get(0).getAsJsonObject();
+        } catch (IndexOutOfBoundsException e) {
+            Log.d("error", e.toString());
+            return true;
+        }
+        return false;
+    }
     //creating all event elements on layout
     public void createbuttons() {
+        //catching events does not have a single bookmaker odd provided
+        if(missingOdds())
+            return;
         createBetName();
         createLeftBet();
         createBackground();
@@ -71,31 +83,35 @@ public class DynamicButtonCreate  extends AppCompatActivity {
         linearLayout.setOrientation(LinearLayout.HORIZONTAL);
         parentlayout.addView(linearLayout);
         Button button = new Button(linearLayout.getContext());
-        button.setText(getOdd(0));
+        String odd = getOdd(0);
+        String id = getId();
+        button.setText(odd);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "left", Toast.LENGTH_SHORT).show();
+                Log.d( "onClick: ",id);
+                AddBetToQ.addEventToCoupon(id,Double.parseDouble(odd));
             }
         });
         button.setWidth(305);
         button.setHeight(150);
         button.setTextSize(15);
         button.setTypeface(null, Typeface.BOLD);
-
         linearLayout.addView(button);
-        createDraw(button.getId(),linearLayout);
+        createDraw(linearLayout);
     }
-    public void createDraw(int leftId,LinearLayout linearLayout) {
+    public void createDraw(LinearLayout linearLayout) {
         Button button = new Button(linearLayout.getContext());
-        button.setText(getOdd(2));
+        String odd = getOdd(2);
+        String id = getId();
+        button.setText(odd);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(button.getText().equals("-"))
                     Toast.makeText(context, "Brak mozliwosci remisu", Toast.LENGTH_SHORT).show();
-                else{
-                    //zzzz
+                else {
+                    AddBetToQ.addEventToCoupon(id, Double.parseDouble(odd));
                 }
             }
         });
@@ -104,21 +120,24 @@ public class DynamicButtonCreate  extends AppCompatActivity {
         linearLayout.addView(button);
         button.setTextSize(15);
         button.setTypeface(null, Typeface.BOLD);
-        createRightBet(button.getId(),linearLayout);
+        createRightBet(linearLayout);
     }
-    public void createRightBet(int leftId,LinearLayout linearLayout) {
+    public void createRightBet(LinearLayout linearLayout) {
         Button button = new Button(linearLayout.getContext());
-        button.setText(getOdd(1));
+        String odd = getOdd(1);
+        String id = getId();
+        button.setText(odd);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, "right", Toast.LENGTH_SHORT).show();
+                Log.d( "onClick: ",id);
+                AddBetToQ.addEventToCoupon(id,Double.parseDouble(odd));
             }
         });
         button.setWidth(305);
         button.setHeight(150);
         button.setTypeface(null, Typeface.BOLD);
-
         button.setTextSize(15);
         linearLayout.addView(button);
     }
@@ -131,7 +150,7 @@ public class DynamicButtonCreate  extends AppCompatActivity {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
-        layoutParams.setMargins(10, 40, 10, 10);
+        layoutParams.setMargins(10, 10, 10, 10);
         betnamelayout.setLayoutParams(layoutParams);
         parentlayout.addView(betnamelayout);
         for(int i=0;i<3;i++)
@@ -182,9 +201,15 @@ public class DynamicButtonCreate  extends AppCompatActivity {
             betnamelayout.addView(textView);
         }
     }
+    public String getId()
+    {
+        String id =jsonObjectList.get(eventnumber).get("id").getAsString();
+        return id;
+    }
     public String getOdd(int i)
     {
-        JsonArray bookmakers2 = jsonObjectList.get(0).getAsJsonArray("bookmakers");
+        Log.d("event number:", Integer.toString(eventnumber));
+        JsonArray bookmakers2 = jsonObjectList.get(eventnumber).getAsJsonArray("bookmakers");
         JsonObject bookmaker = bookmakers2.get(0).getAsJsonObject();
         JsonArray markets2 = bookmaker.getAsJsonArray("markets");
         JsonObject market = markets2.get(0).getAsJsonObject();
@@ -192,12 +217,34 @@ public class DynamicButtonCreate  extends AppCompatActivity {
         if(i==2) {
             //if the bet doesnt allow draw
             if (!market.toString().contains("Draw")) {
-                return "-";
+                //getting draw value if first bookmaker doesnt give it;
+                JsonObject drawValue = getDraw();
+                if(drawValue.size()>1)
+                    market=drawValue;
+                else
+                    return "-";
             }
         }
         JsonArray outcomes = market.getAsJsonArray("outcomes");
         JsonObject outcome = outcomes.get(i).getAsJsonObject();
         return (outcome.get("price").getAsString());
+    }
+
+    //getting draw odd
+    public JsonObject getDraw() {
+        JsonArray bookmakers2 = jsonObjectList.get(eventnumber).getAsJsonArray("bookmakers");
+        for(int i=0;i<bookmakers2.size();i++){
+            JsonObject bookmaker = bookmakers2.get(i).getAsJsonObject();
+            JsonArray markets2 = bookmaker.getAsJsonArray("markets");
+            JsonObject market = markets2.get(0).getAsJsonObject();
+            if (!market.toString().contains("Draw")) {
+                continue;
+            }
+            else
+                return market;
+        }
+        JsonObject empty = new JsonObject();
+        return empty;
     }
 
     public void createBackground()
@@ -213,7 +260,12 @@ public class DynamicButtonCreate  extends AppCompatActivity {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
-        layoutParams.setMargins(10, 10, 10, 30);
+        if(parentlayout.getChildCount()==0)
+            layoutParams.setMargins(10, 10, 10, 50);
+        else
+            layoutParams.setMargins(10, 50, 10, 50);
+
+
         textView.setHeight(150);
         textView.setLayoutParams(layoutParams);
         textView.setGravity(Gravity.CENTER);

@@ -3,9 +3,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.LinearLayout;
-
 import androidx.constraintlayout.widget.ConstraintLayout;
-
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -14,7 +12,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
 import java.io.IOException;
 import java.lang.invoke.ConstantCallSite;
 import java.net.URI;
@@ -37,9 +34,10 @@ public class GetOdds extends AsyncTask<Void, Void, String> {
         this.arg = arg;
         this.lastarray=lastarray;
     }
+    static String apiKey = "133baae9a53925a3c3a415711976445b";
+    static String secondApiKey = "484f5554525deda5862caf25af863b80";
     @Override
     protected String doInBackground(Void... voids) {
-        String apiKey = "484f5554525deda5862caf25af863b80";
         String regions ="eu";
         String markets = "h2h";
         String oddsFormat = "decimal";
@@ -58,13 +56,23 @@ public class GetOdds extends AsyncTask<Void, Void, String> {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        //checking available requests
+        String remainingRequests = oddsResponse.header("x-requests-remaining", "N/A");
+        String usedRequests = oddsResponse.header("x-requests-used", "N/A");
+        Log.d("requests", "reamaining requests: "+remainingRequests +"\n        used requests: "+ usedRequests);
+        if(remainingRequests.equals("0")) {
+            String apiHolder = apiKey;
+            apiKey = secondApiKey;
+            secondApiKey = apiHolder;
+        }
+
         if (oddsResponse.code() != 200) {
             Log.d("Failed to get odds: status_code ", Integer.toString(oddsResponse.code()));
         } else {
             Log.d("response", responsebody);
             return responsebody;
         }
-        return null;
+        return "";
     }
     @Override
     protected void onPostExecute(String result) {
@@ -80,8 +88,5 @@ public class GetOdds extends AsyncTask<Void, Void, String> {
             }
         }
         Log.d("layout", Boolean.toString(emptylayout));
-
     }
-
-
 }
