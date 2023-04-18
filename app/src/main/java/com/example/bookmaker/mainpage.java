@@ -1,6 +1,8 @@
 package com.example.bookmaker;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import android.content.Intent;
@@ -10,17 +12,22 @@ import android.util.Log;
 
 public class mainpage extends AppCompatActivity {
 
+    static View couponBox;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainpage);
+        couponBox=findViewById(R.id.couponbox);
+        Coupon.setCouponBox(couponBox);
         overridePendingTransition(0, 0);
         getSupportActionBar().hide();
     }
+
+
     @Override
-    protected void onPause() {
-        super.onPause();
-        overridePendingTransition(0, 0);
+    protected void onResume() {
+        super.onResume();
+        Coupon.setCouponBox(couponBox);
     }
 
     //buttons

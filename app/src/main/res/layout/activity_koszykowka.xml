@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:background="#1C33AF"
     tools:context=".football">
+    <include
+        layout="@layout/coupon_box"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
