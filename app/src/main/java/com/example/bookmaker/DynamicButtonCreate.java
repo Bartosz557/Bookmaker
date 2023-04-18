@@ -31,13 +31,17 @@ public class DynamicButtonCreate  extends AppCompatActivity {
     private Context context;
     private boolean createHeader;
     private LinearLayout parentlayout;
+
+    private View currentView;
+
     private int eventnumber;
-    public DynamicButtonCreate(Context context, LinearLayout parentlayout, String events,boolean arg)
+    public DynamicButtonCreate(Context context, LinearLayout parentlayout, String events,boolean arg, View currentView)
     {
         this.events=events;
         this.context=context;
         this.parentlayout=parentlayout;
         createHeader = arg;
+        this.currentView=currentView;
     }
     //getting events from json
     public void getEvents()
@@ -90,7 +94,9 @@ public class DynamicButtonCreate  extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d( "onClick: ",id);
-                AddBetToQ.addEventToCoupon(id,Double.parseDouble(odd));
+                Coupon.addEventToCoupon(id,Double.parseDouble(odd));
+                Coupon.setCouponBox(currentView);
+
             }
         });
         button.setWidth(305);
@@ -111,7 +117,8 @@ public class DynamicButtonCreate  extends AppCompatActivity {
                 if(button.getText().equals("-"))
                     Toast.makeText(context, "Brak mozliwosci remisu", Toast.LENGTH_SHORT).show();
                 else {
-                    AddBetToQ.addEventToCoupon(id, Double.parseDouble(odd));
+                    Coupon.addEventToCoupon(id, Double.parseDouble(odd));
+                    Coupon.setCouponBox(currentView);
                 }
             }
         });
@@ -132,8 +139,8 @@ public class DynamicButtonCreate  extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(context, "right", Toast.LENGTH_SHORT).show();
                 Log.d( "onClick: ",id);
-                AddBetToQ.addEventToCoupon(id,Double.parseDouble(odd));
-            }
+                Coupon.addEventToCoupon(id,Double.parseDouble(odd));
+                Coupon.setCouponBox(currentView);            }
         });
         button.setWidth(305);
         button.setHeight(150);
@@ -248,7 +255,6 @@ public class DynamicButtonCreate  extends AppCompatActivity {
 
     public void createBackground()
     {
-
     }
     //setting category element on start of all events in layout
     public void createCategoryHeader()

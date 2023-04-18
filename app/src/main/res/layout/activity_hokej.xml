@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:background="#1C33AF"
     tools:context=".football">
+    <include
+        layout="@layout/coupon_box"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -16,7 +18,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
         <ImageButton
             android:id="@+id/imageButton"
             android:layout_width="48dp"

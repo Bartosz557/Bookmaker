@@ -2,6 +2,7 @@ package com.example.bookmaker;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
 import android.widget.LinearLayout;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import okhttp3.OkHttpClient;
@@ -26,13 +27,17 @@ public class GetOdds extends AsyncTask<Void, Void, String> {
     private boolean lastarray;
     private static boolean emptylayout=true;
     private boolean arg;
-    public GetOdds(Context context, LinearLayout layout, String sport,boolean arg,boolean lastarray)
+    private View currentView;
+
+
+    public GetOdds(Context context, LinearLayout layout, String sport,boolean arg,boolean lastarray, View currentView)
     {
         this.sport=sport;
         this.context=context;
         this.layout=layout;
         this.arg = arg;
         this.lastarray=lastarray;
+        this.currentView=currentView;
     }
     static String apiKey = "133baae9a53925a3c3a415711976445b";
     static String secondApiKey = "484f5554525deda5862caf25af863b80";
@@ -77,7 +82,7 @@ public class GetOdds extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         if(result.length()>5) {
-            DynamicButtonCreate sendevents = new DynamicButtonCreate(context, layout, result, arg);
+            DynamicButtonCreate sendevents = new DynamicButtonCreate(context, layout, result, arg, currentView);
             sendevents.getEvents();
             emptylayout=false;
         }else
