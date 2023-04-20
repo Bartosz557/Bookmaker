@@ -30,6 +30,12 @@ public class mainpage extends AppCompatActivity {
         Coupon.setCouponBox(couponBox);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Coupon.setCouponBox(couponBox);
+    }
+
     //buttons
     public void football(View view)
     {

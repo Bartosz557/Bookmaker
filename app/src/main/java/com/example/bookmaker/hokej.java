@@ -12,6 +12,8 @@ public class hokej extends setCouponClick{
 
     private static View couponBox;
 
+    private static View couponBox;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,20 +1,13 @@
 package com.example.bookmaker;
 
-import android.content.Intent;
 import android.util.Log;
-import android.view.View;
-import android.widget.LinearLayout;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import java.util.HashMap;
 import java.util.Map;
 
-public class Coupon extends AppCompatActivity {
+public class AddBetToQ {
 
-    private static Map<String, Double> addedEvents = new HashMap<String, Double>();
-    private static double multiplier;
+    static Map<String, Double> addedEvents = new HashMap<String, Double>();
+    static double[] prices;
     public static void addEventToCoupon(String id, double odd )
     {
         if(!addedEvents.containsKey(id)) {
@@ -36,25 +29,6 @@ public class Coupon extends AppCompatActivity {
             double odds = entry.getValue();
             String log = ("Item " + itemId + " Odd" + odds);
             Log.d("events", log);
-        }
-        getMultiplier();
-    }
-
-
-    public static void setCouponBox(View couponBox)
-    {
-        if(addedEvents.size()>0)
-            couponBox.setVisibility(View.VISIBLE);
-        else
-            couponBox.setVisibility(View.INVISIBLE);
-    }
-
-    static void getMultiplier()
-    {
-        multiplier=1;
-        for (Map.Entry<String, Double> entry : addedEvents.entrySet()) {
-            double odds = entry.getValue();
-            multiplier*=odds;
         }
     }
 
