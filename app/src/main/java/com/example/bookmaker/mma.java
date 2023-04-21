@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
-public class mma extends AppCompatActivity {
+public class mma extends setCouponClick {
 
     private static View couponBox;
 

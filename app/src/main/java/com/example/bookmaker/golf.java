@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
-public class golf extends AppCompatActivity {
+public class golf extends setCouponClick {
 
     private static View couponBox;
 

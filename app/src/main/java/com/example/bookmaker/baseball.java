@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
-public class baseball extends AppCompatActivity {
+public class baseball extends setCouponClick {
     private static View couponBox;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -62,7 +62,6 @@ public class DynamicButtonCreate  extends AppCompatActivity {
             createbuttons();
         }
     }
-
     public boolean missingOdds()
     {
         try {

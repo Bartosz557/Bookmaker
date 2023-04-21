@@ -11,14 +11,12 @@ import android.widget.LinearLayout;
 public class hokej extends setCouponClick{
 
     private static View couponBox;
-
-    private static View couponBox;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hokej);
-        couponBox=findViewById(R.id.couponbox);
+        couponBox = findViewById(R.id.couponbox);
         Coupon.setCouponBox(couponBox);
         overridePendingTransition(0, 0);
         getSupportActionBar().hide();

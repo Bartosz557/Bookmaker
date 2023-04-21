@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class tennis extends AppCompatActivity {
+public class tennis extends setCouponClick {
 
     private static View couponBox;
     @Override

@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1C33AF"
-    tools:context=".football">
+    android:background="#1C33AF">
     <include
         layout="@layout/coupon_box"/>
 

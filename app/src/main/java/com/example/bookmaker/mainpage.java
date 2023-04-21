@@ -23,13 +23,6 @@ public class mainpage extends AppCompatActivity {
         getSupportActionBar().hide();
     }
 
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Coupon.setCouponBox(couponBox);
-    }
-
     @Override
     protected void onResume() {
         super.onResume();

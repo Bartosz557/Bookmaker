@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class football extends AppCompatActivity {
+public class football extends setCouponClick {
 
     private static View couponBox;
 

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
-public class footballAUS extends AppCompatActivity {
+public class footballAUS extends setCouponClick {
 
     private static View couponBox;
 
