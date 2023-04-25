@@ -13,27 +13,29 @@ import java.util.Map;
 
 public class Coupon extends AppCompatActivity {
 
-    private static Map<String, Double> addedEvents = new HashMap<String, Double>();
+    private static Map<String, String[]> addedEvents = new HashMap<String, String[]>();
+
     private static double multiplier;
-    public static void addEventToCoupon(String id, double odd )
+    public static void addEventToCoupon(String id, String odd, String homeTeam, String awayTeam, int scoreBet )
     {
+        String[] values = new String[]{odd,homeTeam,awayTeam,Integer.toString(scoreBet)};
         if(!addedEvents.containsKey(id)) {
-            addedEvents.put(id, odd);
+            addedEvents.put(id, values);
         }
         else{
             //deleting event if pressed the same odd
-            if (odd == addedEvents.get(id))
+            if (odd == addedEvents.get(id)[0])
                 addedEvents.remove(id);
             else {
                 //switching event odds if pressed another odd
                 addedEvents.remove(id);
-                addedEvents.put(id, odd);
+                addedEvents.put(id, values);
             }
         }
         //checking coupon in logs
-        for (Map.Entry<String, Double> entry : addedEvents.entrySet()) {
+        for (Map.Entry<String, String[]> entry : addedEvents.entrySet()) {
             String itemId = entry.getKey();
-            double odds = entry.getValue();
+            String odds = entry.getValue()[1];
             String log = ("Item " + itemId + " Odd" + odds);
             Log.d("events", log);
         }
@@ -51,13 +53,13 @@ public class Coupon extends AppCompatActivity {
     static void getMultiplier()
     {
         multiplier=1;
-        for (Map.Entry<String, Double> entry : addedEvents.entrySet()) {
-            double odds = entry.getValue();
+        for (Map.Entry<String, String[]> entry : addedEvents.entrySet()) {
+            double odds = Double.parseDouble(entry.getValue()[0]);
             multiplier*=odds;
         }
     }
 
-    static Map<String, Double> setEvents()
+    static Map<String, String[]> setEvents()
     {
         return addedEvents;
     }

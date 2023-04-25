@@ -88,12 +88,14 @@ public class DynamicButtonCreate  extends AppCompatActivity {
         Button button = new Button(linearLayout.getContext());
         String odd = getOdd(0);
         String id = getId();
+        String ht = getHN();
+        String at = getAN();
         button.setText(odd);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d( "onClick: ",id);
-                Coupon.addEventToCoupon(id,Double.parseDouble(odd));
+                Coupon.addEventToCoupon(id,odd,ht,at,0);
                 Coupon.setCouponBox(currentView);
 
             }
@@ -109,6 +111,8 @@ public class DynamicButtonCreate  extends AppCompatActivity {
         Button button = new Button(linearLayout.getContext());
         String odd = getOdd(2);
         String id = getId();
+        String ht = getHN();
+        String at = getAN();
         button.setText(odd);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,7 +120,7 @@ public class DynamicButtonCreate  extends AppCompatActivity {
                 if(button.getText().equals("-"))
                     Toast.makeText(context, "Brak mozliwosci remisu", Toast.LENGTH_SHORT).show();
                 else {
-                    Coupon.addEventToCoupon(id, Double.parseDouble(odd));
+                    Coupon.addEventToCoupon(id,odd,ht,at,1);
                     Coupon.setCouponBox(currentView);
                 }
             }
@@ -132,13 +136,15 @@ public class DynamicButtonCreate  extends AppCompatActivity {
         Button button = new Button(linearLayout.getContext());
         String odd = getOdd(1);
         String id = getId();
+        String ht = getHN();
+        String at = getAN();
         button.setText(odd);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, "right", Toast.LENGTH_SHORT).show();
                 Log.d( "onClick: ",id);
-                Coupon.addEventToCoupon(id,Double.parseDouble(odd));
+                Coupon.addEventToCoupon(id,odd,ht,at,2);
                 Coupon.setCouponBox(currentView);            }
         });
         button.setWidth(305);
@@ -156,7 +162,7 @@ public class DynamicButtonCreate  extends AppCompatActivity {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
-        layoutParams.setMargins(10, 10, 10, 10);
+        layoutParams.setMargins(10, 30, 10, 10);
         betnamelayout.setLayoutParams(layoutParams);
         parentlayout.addView(betnamelayout);
         for(int i=0;i<3;i++)
@@ -212,6 +218,17 @@ public class DynamicButtonCreate  extends AppCompatActivity {
         String id =jsonObjectList.get(eventnumber).get("id").getAsString();
         return id;
     }
+    public String getHN()
+    {
+        String hn =jsonObjectList.get(eventnumber).get("home_team").getAsString();
+        return hn;
+    }
+
+    public String getAN()
+    {
+        String an =jsonObjectList.get(eventnumber).get("away_team").getAsString();
+        return an;
+    }
     public String getOdd(int i)
     {
         Log.d("event number:", Integer.toString(eventnumber));
@@ -265,9 +282,9 @@ public class DynamicButtonCreate  extends AppCompatActivity {
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
         if(parentlayout.getChildCount()==0)
-            layoutParams.setMargins(10, 10, 10, 50);
+            layoutParams.setMargins(10, 10, 10, 30);
         else
-            layoutParams.setMargins(10, 50, 10, 50);
+            layoutParams.setMargins(10, 50, 10, 30);
 
 
         textView.setHeight(150);
