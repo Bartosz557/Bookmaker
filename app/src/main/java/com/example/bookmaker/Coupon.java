@@ -3,6 +3,7 @@ package com.example.bookmaker;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -57,6 +58,13 @@ public class Coupon extends AppCompatActivity {
             double odds = Double.parseDouble(entry.getValue()[0]);
             multiplier*=odds;
         }
+    }
+
+
+    //save to databse!
+     static public void createCoupon(EditText priceStake)
+    {
+        double winPrice = Double.parseDouble(priceStake.getText().toString())*multiplier*0.9;
     }
 
     static Map<String, String[]> setEvents()
