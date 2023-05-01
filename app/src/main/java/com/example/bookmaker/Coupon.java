@@ -42,7 +42,19 @@ public class Coupon extends AppCompatActivity {
         }
         getMultiplier();
     }
-
+    public static boolean delEvent(String id)
+    {
+        addedEvents.remove(id);
+        for (Map.Entry<String, String[]> entry : addedEvents.entrySet()) {
+            String itemId = entry.getKey();
+            String odds = entry.getValue()[1];
+            String log = ("Item " + itemId + " Odd" + odds);
+            Log.d("events", log);
+        }
+        if(addedEvents.size()==0)
+            return true;
+        return false;
+    }
     public static void setCouponBox(View couponBox)
     {
         if(addedEvents.size()>0)
@@ -50,7 +62,6 @@ public class Coupon extends AppCompatActivity {
         else
             couponBox.setVisibility(View.INVISIBLE);
     }
-
     static void getMultiplier()
     {
         multiplier=1;
@@ -59,14 +70,18 @@ public class Coupon extends AppCompatActivity {
             multiplier*=odds;
         }
     }
-
-
-    //save to databse!
-     static public void createCoupon(EditText priceStake)
+    static public double setWinPrice(EditText priceStake)
     {
-        double winPrice = Double.parseDouble(priceStake.getText().toString())*multiplier*0.9;
+        CharSequence stake = priceStake.getText();
+        if(stake!=null && stake.length() > 0)
+            return Double.parseDouble(stake.toString())*multiplier*0.9;
+        return 0;
     }
+    //save to databse!
+     static public void createCoupon()
+    {
 
+    }
     static Map<String, String[]> setEvents()
     {
         return addedEvents;

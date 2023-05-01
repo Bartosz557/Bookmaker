@@ -19,6 +19,7 @@ public class createCouponEvents extends AppCompatActivity {
 
     public void createLayout(LinearLayout layout, Context context)
     {
+        coupon_full_screen activity = (coupon_full_screen) context;
         LayoutInflater inflater = LayoutInflater.from(context);
         Map<String, String[]> events = Coupon.setEvents();
 //        0 = odds;
@@ -27,10 +28,7 @@ public class createCouponEvents extends AppCompatActivity {
 //        3 = scoreBet;
         for (Map.Entry<String, String[]> entry : events.entrySet()) {
             Log.d("eventsincoupon","event");
-//            String itemId = entry.getKey();
-//            String odds = entry.getValue()[1];
-//            String log = ("Item " + itemId + " Odd" + odds);
-//            Log.d("events", log);
+            String itemId = entry.getKey();
             View view = inflater.inflate(R.layout.coupon_template, null);
             TextView odd = view.findViewById(R.id.addOdd);
             TextView winner = view.findViewById(R.id.addWinner);
@@ -40,6 +38,10 @@ public class createCouponEvents extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     layout.removeView(view);
+                    if(Coupon.delEvent(itemId)) {
+                        Log.d("elo ","finish");
+                        activity.finish();
+                    }
                 }
             });
 
