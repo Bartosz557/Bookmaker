@@ -1,22 +1,20 @@
 package com.example.bookmaker;
 
-import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Coupon extends AppCompatActivity {
 
     private static Map<String, String[]> addedEvents = new HashMap<String, String[]>();
-
-    private static double multiplier;
+    private static double multiplier,price,winPrice;
     public static void addEventToCoupon(String id, String odd, String homeTeam, String awayTeam, int scoreBet )
     {
         String[] values = new String[]{odd,homeTeam,awayTeam,Integer.toString(scoreBet)};
@@ -73,14 +71,29 @@ public class Coupon extends AppCompatActivity {
     static public double setWinPrice(EditText priceStake)
     {
         CharSequence stake = priceStake.getText();
-        if(stake!=null && stake.length() > 0)
-            return Double.parseDouble(stake.toString())*multiplier*0.9;
+        if(stake!=null && stake.length() > 0) {
+            price = Double.parseDouble(stake.toString());
+            winPrice = price*multiplier*0.9;
+            return winPrice;
+        }
         return 0;
     }
     //save to databse!
-     static public void createCoupon()
-    {
 
+     static public void createCoupon(SQLiteDatabase myDB) {
+         saveCouponDB saveCoupon = new saveCouponDB(addedEvents, multiplier, price ,winPrice, myDB);
+         saveCoupon.saveCoupon();
+         addedEvents.clear();
+     }
+     static public int tryToBet()
+    {
+        if(addedEvents.size()>0 && winPrice>=1) {
+            return 0;
+        }else if(winPrice>0)
+        {
+            return 1;
+        }else
+            return 2;
     }
     static Map<String, String[]> setEvents()
     {

@@ -1,7 +1,11 @@
 package com.example.bookmaker;
 
+import static android.database.sqlite.SQLiteDatabase.openOrCreateDatabase;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.R.anim;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.text.DecimalFormat;
 
 public class coupon_full_screen extends AppCompatActivity {
@@ -71,7 +76,20 @@ public class coupon_full_screen extends AppCompatActivity {
 
     public void betClick(View view)
     {
-        Coupon.createCoupon();
+        int result = Coupon.tryToBet();
+        switch(result) {
+            case 0: {
+                SQLiteDatabase myDB = openOrCreateDatabase("my.db", Context.MODE_PRIVATE, null);
+                Coupon.createCoupon(myDB);
+                break;
+            }
+            case 1:
+                // noti - to small bet
+                break;
+            case 2:
+                // noti - no bet
+                break;
+        }
     }
 
 }
