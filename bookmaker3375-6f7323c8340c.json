@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "bookmaker3375",
+  "private_key_id": "6f7323c8340c2a42f579c8ccc146978dbbaa6961",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQC6RfFiP8oxASCx\ncMNL08rBUOmtOEl6hbXWPwfE7pszFCLvO2ij5cgBKPmSupz4DqMfWab1hAQM1F50\nBzOTZji5zT944k3y9h7+qlBkF84YoZtV7eIHwngTkZ0q/wbNHuId9py4+gFur+yW\nge4JduUgUaxRisuvTbgpQL1nKF4KrToF1G6SpWHP+kf2A8tCBE6xvv3KWqbOhbLL\niOw8RLiHKpliAAor853sE2uxm3STFbFQq56KOsCAc2ASwJ3N7Ox29E1ezoRT8OV5\nuVQX+L5L9ppOICyyTOlcp533FWE1DAqub4OZZGDWMFav3U1r+/4anANhW+JILWaB\n4ibli+9/AgMBAAECggEAGQ8ryByY0OWRRmMgguT9PpXqD0RRQ6BqtBCgCkhSAhnQ\nEVXGtWCbpZGjnFpqn5x91CE1gDYVwrwXRji/IYdQ/lNfGfN9VRWeBINZHqjCheHH\n31Q0t6KGkOtitNQWUCYQJBkh6xNcefhE4IKeSWZWBiEMCPRJLqOgBjy6vlQEmB7h\nUb+s8FmwrVVKUNqHoFPdYOwzX5rJIsVaoWIL6MqWs21cvl80M4c+R233HSMwtuVj\nQO03Iv9LtLKC09s6g5CCvKNbM0P31y/cjF1LT3a3gDPiF4VZwD93akA/PXJsy8sx\nQKvoJk+13uTRjp0exQT057cqAapaYTz42cRMYVs0EQKBgQD16aizHytWWzxovNcB\nypVMMR/9FYgeL3AmpV9n4X7enl2wPE2c1G+bWCjwlIqhRnQ6pWKERwvbnQgHfVHR\n/FiSCjRCcQ3edeRdjbcVxIZpU33QWkevguZ7J+uHTtkfwixDTjFCtL0sF0hLSl7W\ny15583x2si38f48xWbdzA1v3fQKBgQDB6gGwB4+eHaKHw1KY382x20Obw4eAsqPh\nKgiIjNXut84p+4Tc4Gg39wmXdZPl11KY//DP7J/N1YO2FotRaz8dR9BTrLeEk/ow\nHFk0rvKanFldC+Jc7aCg1V8Iku7H4PCgwxsYn6r5tTUwhVYfEgSna++02I4BUlM7\n/Oic1sxLqwKBgQCNwskxmUJOYgINDu+TZMl0Rs1+BC+X1xj77lF1fRS6GOlBc0H6\nqqw8DTJsnfTcy9StCjIktyAq1feO+bt1JdeZOLCvrKSmHagsFkn5DnW9uhfJSIIS\nt49OZ9DrC5U3LaR+mFDld3OmOzW90X2irVIlUyvo8QZ5jL9rX6DVeJZHsQKBgQCl\nmRAt4pccQVSOOhhsYxvHGmenOpiaKHRZEktNSXBct20BX0D8W0vFF1uCk69k5bgs\n3s0o03s5DXC4bJI3Sq4QdEaNXn8uYiyTL3Ji0lBuBr0t/7sk/u1gzDanHMt7uDXm\nJBgctCYPr1coA4YjbIC69Ss0toa2zDY2kWmYnrrClwKBgQC8liojM1Fi5byDMllz\n8LnDf31BJ1KwkFo7kJk1OJujThreM9C4U+QGQwrqv2RXNKFszdjEdGm8EL4UkZSG\ndrq0ZSmkDh4GeBIul4OQFEgu264Z03eXB86yHBInRmjYleWMOp0A095LJIcqZobk\nh57l5gxIB7ZVXi4m/PvEl4PXUA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "administrator-dystrybucji@bookmaker3375.iam.gserviceaccount.com",
+  "client_id": "100209235288197043379",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/administrator-dystrybucji%40bookmaker3375.iam.gserviceaccount.com"
+}

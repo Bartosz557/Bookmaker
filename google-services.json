@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "498724738393",
+    "project_id": "bookmaker3375",
+    "storage_bucket": "bookmaker3375.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:498724738393:android:0fba564eb1a68a0d712848",
+        "android_client_info": {
+          "package_name": "com.example.bookmaker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "498724738393-0stgh1oae89hn959vok1mp1nembhgq75.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCM2RKb7QGhLGoHczcQJ3sbXBqekGK7Av4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "498724738393-0stgh1oae89hn959vok1mp1nembhgq75.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
