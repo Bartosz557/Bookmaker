@@ -17,6 +17,7 @@ public class hokej extends setCouponClick{
         Coupon.setCouponBox(couponBox);
         overridePendingTransition(0, 0);
         getSupportActionBar().hide();
+        /// xddddddd
         LinearLayout layout = findViewById(R.id.couponlayout);
 //        String[] sports = new String[]{"icehockey_nhl","icehockey_sweden_hockey_league","icehockey_sweden_allsvenskan"};
 //        boolean createHeader=false;

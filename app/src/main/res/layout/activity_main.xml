@@ -11,9 +11,8 @@
         android:id="@+id/constraintLayout"
         android:layout_width="393dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="146dp"
         android:background="#051A9F"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,6 +56,7 @@
 
         <ImageButton
             android:id="@+id/imageButton"
+            android:contentDescription="profil"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginStart="110dp"
@@ -70,6 +70,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
         android:layout_width="391dp"
         android:layout_height="250dp"
         android:layout_marginTop="200dp"
