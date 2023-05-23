@@ -53,13 +53,17 @@ public class saveCouponDB {
 
     private void saveToDB()
     {
+        //deleting databsae
+//        database.execSQL("DROP TABLE IF EXISTS BetCoupons");
+//        database.execSQL("DROP TABLE IF EXISTS events");
+
         database.execSQL("CREATE TABLE IF NOT EXISTS BetCoupons (" +
                 "bet_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "bet_odd REAL NOT NULL, " +
                 "bet_price REAL NOT NULL, " +
                 "potential_win REAL NOT NULL," +
                 "bet_date DATE NOT NULL, " +
-                "coupon_status CHECK (status IN ('pending', 'succes', 'failed')) " +
+                "coupon_status CHECK (coupon_status IN ('pending', 'succes', 'failed')) " +
                 ")");
         database.execSQL("CREATE TABLE IF NOT EXISTS events (" +
                 "event_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -67,7 +71,7 @@ public class saveCouponDB {
                 "event_api_id TEXT NOT NULL, " +
                 "event_odds REAL NOT NULL, " +
                 "bet_winner TEXT NOT NULL, " +
-                "bet_status CHECK (status IN ('pending', 'succes', 'failed')), " +
+                "bet_status CHECK (bet_status IN ('pending', 'succes', 'failed')), " +
                 "FOREIGN KEY (bet_id) REFERENCES BetCoupons(bet_id)" +
                 ")");
         //putting values to coupon table
@@ -77,13 +81,13 @@ public class saveCouponDB {
         betCouponValues.put("potential_win", winPrice);
         betCouponValues.put("bet_date", getData());
         betCouponValues.put("coupon_status", "pending");
-        long insertedRowId = database.insert("events", null, betCouponValues);
-        String insertedKeyValue = String.valueOf(insertedRowId);
+        long insertedRowId = database.insert("BetCoupons", null, betCouponValues);
+        String insertedKeyValue = String.valueOf(insertedRowId); //doesnt work, gives -1
         //putting coupon values to events table
         ContentValues values = new ContentValues();
         for (Map.Entry<String, String[]> entry : events.entrySet()) {
             String itemId = entry.getKey();
-            String odds = entry.getValue()[1];
+            String odds = entry.getValue()[0];
             values.clear(); // Clear previous values
             String scorebet="";
             if (entry.getValue()[3].equals("0")) {
@@ -100,14 +104,63 @@ public class saveCouponDB {
             values.put("bet_status", "pending");
             database.insert("events", null, values);
         }
+        ///////////////////////
         Cursor betCouponCursor = database.rawQuery("SELECT * FROM BetCoupons", null);
         while (betCouponCursor.moveToNext()) {
-            int betId = betCouponCursor.getInt(betCouponCursor.getColumnIndex("bet_id"));
-            float betOdd = betCouponCursor.getFloat(betCouponCursor.getColumnIndex("bet_odd"));
-            float betPrice = betCouponCursor.getFloat(betCouponCursor.getColumnIndex("bet_price"));
-            float potentialWin = betCouponCursor.getFloat(betCouponCursor.getColumnIndex("potential_win"));
-            String betDate = betCouponCursor.getString(betCouponCursor.getColumnIndex("bet_date"));
-            String couponStatus = betCouponCursor.getString(betCouponCursor.getColumnIndex("coupon_status"));
+            int betIdIndex = betCouponCursor.getColumnIndex("bet_id");
+            int betOddIndex = betCouponCursor.getColumnIndex("bet_odd");
+            int betPriceIndex = betCouponCursor.getColumnIndex("bet_price");
+            int potentialWinIndex = betCouponCursor.getColumnIndex("potential_win");
+            int betDateIndex = betCouponCursor.getColumnIndex("bet_date");
+            int couponStatusIndex = betCouponCursor.getColumnIndex("coupon_status");
+
+            int betId = 0;
+            float betOdd = 0;
+            float betPrice = 0;
+            float potentialWin = 0;
+            String betDate = "";
+            String couponStatus = "";
+            if (betIdIndex != -1) {
+                betId = betCouponCursor.getInt(betIdIndex);
+                // Process the retrieved bet ID value
+            } else {
+                // Handle the case when the column index is -1 (column not found)
+            }
+
+            if (betOddIndex != -1) {
+                betOdd = betCouponCursor.getFloat(betOddIndex);
+                // Process the retrieved bet odd value
+            } else {
+                // Handle the case when the column index is -1 (column not found)
+            }
+
+            if (betPriceIndex != -1) {
+                betPrice = betCouponCursor.getFloat(betPriceIndex);
+                // Process the retrieved bet price value
+            } else {
+                // Handle the case when the column index is -1 (column not found)
+            }
+
+            if (potentialWinIndex != -1) {
+                potentialWin = betCouponCursor.getFloat(potentialWinIndex);
+                // Process the retrieved potential win value
+            } else {
+                // Handle the case when the column index is -1 (column not found)
+            }
+
+            if (betDateIndex != -1) {
+                betDate = betCouponCursor.getString(betDateIndex);
+                // Process the retrieved bet date value
+            } else {
+                // Handle the case when the column index is -1 (column not found)
+            }
+
+            if (couponStatusIndex != -1) {
+                couponStatus = betCouponCursor.getString(couponStatusIndex);
+                // Process the retrieved coupon status value
+            } else {
+                // Handle the case when the column index is -1 (column not found)
+            }
 
             // Print the values
             Log.d("BetCoupons", "Bet ID: " + betId);
@@ -121,12 +174,61 @@ public class saveCouponDB {
         ///////////////////////
         Cursor eventsCursor = database.rawQuery("SELECT * FROM events", null);
         while (eventsCursor.moveToNext()) {
-            int eventId = eventsCursor.getInt(eventsCursor.getColumnIndex("event_id"));
-            int betId = eventsCursor.getInt(eventsCursor.getColumnIndex("bet_id"));
-            String eventApiId = eventsCursor.getString(eventsCursor.getColumnIndex("event_api_id"));
-            float eventOdds = eventsCursor.getFloat(eventsCursor.getColumnIndex("event_odds"));
-            String betWinner = eventsCursor.getString(eventsCursor.getColumnIndex("bet_winner"));
-            String betStatus = eventsCursor.getString(eventsCursor.getColumnIndex("bet_status"));
+            int eventIdIndex = eventsCursor.getColumnIndex("event_id");
+            int betIdIndex = eventsCursor.getColumnIndex("bet_id");
+            int eventApiIdIndex = eventsCursor.getColumnIndex("event_api_id");
+            int eventOddsIndex = eventsCursor.getColumnIndex("event_odds");
+            int betWinnerIndex = eventsCursor.getColumnIndex("bet_winner");
+            int betStatusIndex = eventsCursor.getColumnIndex("bet_status");
+
+            int eventId=0;
+            int betId=0;
+            String eventApiId="";
+            float eventOdds=0;
+            String betWinner="";
+            String betStatus="";
+
+            if (eventIdIndex != -1) {
+                eventId = eventsCursor.getInt(eventIdIndex);
+                // Process the retrieved event ID value
+            } else {
+                // Handle the case when the column index is -1 (column not found)
+            }
+
+            if (betIdIndex != -1) {
+                betId = eventsCursor.getInt(betIdIndex);
+                // Process the retrieved bet ID value
+            } else {
+                // Handle the case when the column index is -1 (column not found)
+            }
+
+            if (eventApiIdIndex != -1) {
+                eventApiId = eventsCursor.getString(eventApiIdIndex);
+                // Process the retrieved event API ID value
+            } else {
+                // Handle the case when the column index is -1 (column not found)
+            }
+
+            if (eventOddsIndex != -1) {
+                eventOdds = eventsCursor.getFloat(eventOddsIndex);
+                // Process the retrieved event odds value
+            } else {
+                // Handle the case when the column index is -1 (column not found)
+            }
+
+            if (betWinnerIndex != -1) {
+                betWinner = eventsCursor.getString(betWinnerIndex);
+                // Process the retrieved bet winner value
+            } else {
+                // Handle the case when the column index is -1 (column not found)
+            }
+
+            if (betStatusIndex != -1) {
+                betStatus = eventsCursor.getString(betStatusIndex);
+                // Process the retrieved bet status value
+            } else {
+                // Handle the case when the column index is -1 (column not found)
+            }
 
             // Print the values
             Log.d("Events", "Event ID: " + eventId);
@@ -136,8 +238,8 @@ public class saveCouponDB {
             Log.d("Events", "Bet Winner: " + betWinner);
             Log.d("Events", "Bet Status: " + betStatus);
         }
-        eventsCursor.close();
-        /////
+        eventsCursor.close();/// LOGS FOR EVENTS IN DB (DELETE AFTER TESTS)
+        //////////////////////
             database.close();
     }
 

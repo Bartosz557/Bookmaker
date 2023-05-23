@@ -79,7 +79,6 @@ public class Coupon extends AppCompatActivity {
         }
         return 0;
     }
-    //save to databse!
 
      static public void createCoupon(SQLiteDatabase myDB) {
          saveCouponDB saveCoupon = new saveCouponDB(addedEvents, multiplier, price ,winPrice, myDB);

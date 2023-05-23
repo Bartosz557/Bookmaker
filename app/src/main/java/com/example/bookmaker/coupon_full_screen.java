@@ -82,6 +82,7 @@ public class coupon_full_screen extends AppCompatActivity {
             case 0: {
                 SQLiteDatabase myDB = openOrCreateDatabase("my.db", Context.MODE_PRIVATE, null);
                 Coupon.createCoupon(myDB);
+                finish();
                 break;
             }
             case 1:
