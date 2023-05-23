@@ -30,7 +30,8 @@ public class coupon_full_screen extends AppCompatActivity {
         setContentView(R.layout.activity_coupon_full_screen);
         setOdd();
         setTextEdit();
-        overridePendingTransition(R.anim.slide_up, android.R.anim.fade_out);
+        //usun komentarz przy finalV, overpendending nie dziala na dellu
+        //overridePendingTransition(R.anim.slide_up, android.R.anim.fade_out);
         ImageButton backButton = findViewById(R.id.backbutton);
         createCouponEvents createLayouts = new createCouponEvents();
         LinearLayout layout = findViewById(R.id.couponlayout);
