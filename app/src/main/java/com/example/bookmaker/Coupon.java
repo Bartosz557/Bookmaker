@@ -15,10 +15,10 @@ public class Coupon extends AppCompatActivity {
 
     private static Map<String, String[]> addedEvents = new HashMap<String, String[]>();
     private static double multiplier,price,winPrice;
-    public static void addEventToCoupon(String id, String odd, String homeTeam, String awayTeam, int scoreBet )
+    public static void addEventToCoupon(String id, String odd, String homeTeam, String awayTeam, int scoreBet, String sport )
             //scorBet - 1 home 2 draw 3 away
     {
-        String[] values = new String[]{odd,homeTeam,awayTeam,Integer.toString(scoreBet)};
+        String[] values = new String[]{odd,homeTeam,awayTeam,Integer.toString(scoreBet),sport};
         if(!addedEvents.containsKey(id)) {
             addedEvents.put(id, values);
         }

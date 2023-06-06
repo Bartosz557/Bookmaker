@@ -3,7 +3,7 @@ package com.example.bookmaker;
 import static android.database.sqlite.SQLiteDatabase.openOrCreateDatabase;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.R.anim;
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -11,14 +11,10 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import java.io.IOException;
-import java.text.DecimalFormat;
 
 public class coupon_full_screen extends AppCompatActivity {
 

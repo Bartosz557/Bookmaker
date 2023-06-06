@@ -30,6 +30,12 @@ public class mainpage extends AppCompatActivity {
     }
 
     //buttons
+    public void couponList(View view)
+    {
+        Intent i = new Intent(this,couponslist.class);
+        startActivity(i);
+    }
+
     public void football(View view)
     {
         Intent i = new Intent(this,football.class);

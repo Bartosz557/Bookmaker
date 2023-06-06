@@ -1,4 +1,8 @@
 package com.example.bookmaker;
+
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.util.Log;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -9,47 +13,33 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import java.io.IOException;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import java.io.IOException;
-import java.lang.invoke.ConstantCallSite;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
 
-public class GetOdds extends AsyncTask<Void, Void, String> {
+public class statusRequest extends AsyncTask<Void, Void, String> {
+    String sport;
+    String id;
 
-    private String sport;
-    private Context context;
-    private LinearLayout layout;
-    private boolean lastarray;
-    private static boolean emptylayout=true;
-    private boolean arg;
-    private View currentView;
+    public interface StatusRequestCallback {
+        void onStatusRequestComplete(String result);
+    }
+    private StatusRequestCallback callback;
 
-
-    public GetOdds(Context context, LinearLayout layout, String sport,boolean arg,boolean lastarray, View currentView)
+    public statusRequest(String id, String sport,StatusRequestCallback callback)
     {
         this.sport=sport;
-        this.context=context;
-        this.layout=layout;
-        this.arg = arg;
-        this.lastarray=lastarray;
-        this.currentView=currentView;
+        this.id=id;
+        this.callback = callback;
+
     }
+
+    int daysFrom = 1;
+    String dateFormat = "iso";
     static String apiKey = "133baae9a53925a3c3a415711976445b";
     static String secondApiKey = "484f5554525deda5862caf25af863b80";
+
     @Override
     protected String doInBackground(Void... voids) {
-        String regions ="eu";
-        String markets = "h2h";
-        String oddsFormat = "decimal";
-        String dateFormat = "iso";
         String responsebody = null;
-        String url = "https://api.the-odds-api.com/v4/sports/" + sport + "/odds?api_key=" + apiKey
-                + "&regions=" + regions + "&markets=" + markets + "&oddsFormat=" + oddsFormat + "&dateFormat=" + dateFormat;
+        String url = "https://api.the-odds-api.com/v4/sports/" + sport +"/scores/?daysFrom=" + daysFrom + "&apiKey="+ apiKey +"&dateFormat=" + dateFormat;
         Request oddsRequest = new Request.Builder()
                 .url(url)
                 .build();
@@ -72,26 +62,25 @@ public class GetOdds extends AsyncTask<Void, Void, String> {
         }
 
         if (oddsResponse.code() != 200) {
-            Log.d("Failed to get odds: status_code ", Integer.toString(oddsResponse.code()));
+            Log.d("Failed to get scores: status_code ", Integer.toString(oddsResponse.code()));
+            return "fail";
         } else {
             Log.d("response", responsebody);
             return responsebody;
         }
-        return "";
     }
     @Override
     protected void onPostExecute(String result) {
-        if(result.length()>5) {
-            DynamicButtonCreate sendevents = new DynamicButtonCreate(context, layout, result, arg, currentView,sport);
-            sendevents.getEvents();
-            emptylayout=false;
+        if (!result.equals("fail")) {
+            GetStatus getS = new GetStatus();
+            getS.getResponse(sport,result,id);
         }else
         {
-            if(lastarray&&emptylayout) {
-                NoEventsNoti.noEvents(context, layout);
-                Log.d("result", "break zdarzen");
-            }
+            eventlist.getStatus("pending");
         }
-        Log.d("layout", Boolean.toString(emptylayout));
+
+        if (callback != null) {
+            callback.onStatusRequestComplete(result);
+        }
     }
 }

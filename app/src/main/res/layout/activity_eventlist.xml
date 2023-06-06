@@ -90,7 +90,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <LinearLayout
-            android:id="@+id/couponlayout"
+            android:id="@+id/eventlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"></LinearLayout>

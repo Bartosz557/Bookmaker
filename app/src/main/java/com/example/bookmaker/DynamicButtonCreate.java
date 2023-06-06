@@ -31,12 +31,12 @@ public class DynamicButtonCreate  extends AppCompatActivity {
     private Context context;
     private boolean createHeader;
     private LinearLayout parentlayout;
-
     private View currentView;
-
     private int eventnumber;
-    public DynamicButtonCreate(Context context, LinearLayout parentlayout, String events,boolean arg, View currentView)
+    private String sport;
+    public DynamicButtonCreate(Context context, LinearLayout parentlayout, String events,boolean arg, View currentView,String sport)
     {
+        this.sport=sport;
         this.events=events;
         this.context=context;
         this.parentlayout=parentlayout;
@@ -95,9 +95,8 @@ public class DynamicButtonCreate  extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d( "onClick: ",id);
-                Coupon.addEventToCoupon(id,odd,ht,at,0);
+                Coupon.addEventToCoupon(id,odd,ht,at,0,sport);
                 Coupon.setCouponBox(currentView);
-
             }
         });
         button.setWidth(305);
@@ -117,10 +116,11 @@ public class DynamicButtonCreate  extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(button.getText().equals("-"))
+                if(button.getText().equals("-")) {
                     Toast.makeText(context, "Brak mozliwosci remisu", Toast.LENGTH_SHORT).show();
+                }
                 else {
-                    Coupon.addEventToCoupon(id,odd,ht,at,1);
+                    Coupon.addEventToCoupon(id,odd,ht,at,1,sport);
                     Coupon.setCouponBox(currentView);
                 }
             }
@@ -144,7 +144,7 @@ public class DynamicButtonCreate  extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(context, "right", Toast.LENGTH_SHORT).show();
                 Log.d( "onClick: ",id);
-                Coupon.addEventToCoupon(id,odd,ht,at,2);
+                Coupon.addEventToCoupon(id,odd,ht,at,2,sport);
                 Coupon.setCouponBox(currentView);            }
         });
         button.setWidth(305);
