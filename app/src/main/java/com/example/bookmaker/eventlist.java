@@ -2,13 +2,17 @@ package com.example.bookmaker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,11 +27,11 @@ public class eventlist extends AppCompatActivity {
 
     static String currentstatus="pause";
     String sport="",teams="";
-    int eventId=0;
+    static String eventId="";
     String eventApiId="";
     String eventOdds="";
-    String betWinner="";
-    String betStatus="";
+    static String betWinner="";
+    static String betStatus="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +56,6 @@ public class eventlist extends AppCompatActivity {
             int eventIdIndex = eventsCursor.getColumnIndex("event_id");
             int sportIdIndex = eventsCursor.getColumnIndex("sport");
             int teamsIdIndex = eventsCursor.getColumnIndex("teams");
-
             int eventApiIdIndex = eventsCursor.getColumnIndex("event_api_id");
             int eventOddsIndex = eventsCursor.getColumnIndex("event_odds");
             int betWinnerIndex = eventsCursor.getColumnIndex("bet_winner");
@@ -66,7 +69,7 @@ public class eventlist extends AppCompatActivity {
 //            String betStatus="";
 
             if (eventIdIndex != -1)
-                eventId = eventsCursor.getInt(eventIdIndex);
+                eventId = eventsCursor.getString(eventIdIndex);
             if (sportIdIndex != -1)
                 sport = eventsCursor.getString(sportIdIndex);
             if (teamsIdIndex != -1)
@@ -103,6 +106,15 @@ public class eventlist extends AppCompatActivity {
         TextView betscore = view.findViewById(R.id.betscore);
         TextView betodd = view.findViewById(R.id.betodd);
         ImageView betstatus = view.findViewById(R.id.betstatus);
+        ImageButton searchbutton = view.findViewById(R.id.searchbutton);
+        searchbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("https://www.google.com/search?q=" + teams + "score");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
 //            int eventId=0;
 //            int betId=0;
 //            String eventApiId="";
@@ -123,6 +135,8 @@ public class eventlist extends AppCompatActivity {
                 betscore.setText(score);
                 //betstatus.setImageIcon(); currentstatus
                 layout.addView(view);
+                if(!currentstatus.equals(betStatus))
+                    updateStatus(currentstatus,eventId);
                 currentstatus="pause";
             }
         });
@@ -130,9 +144,24 @@ public class eventlist extends AppCompatActivity {
 
     }
 
+    public void updateStatus(String status,String id) {
+        SQLiteDatabase myDB = openOrCreateDatabase("my.db", Context.MODE_PRIVATE, null);
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("bet_status", status);
+            String tableName = "events";
+            String whereClause = "event_id = ?";
+            String[] whereArgs = {id};
+            myDB.update(tableName, contentValues, whereClause, whereArgs);
+            myDB.close();
+    }
+
     public static void getStatus(String stat)
     {
-        currentstatus=stat;
+        if(stat.equals(betWinner))
+            currentstatus="succes";
+        else
+            currentstatus="failed";
+
     }
     public static void getWinner(String stat)
     {

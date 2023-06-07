@@ -49,15 +49,14 @@ public class GetStatus {
             if (id.equals(targetid)) {
                 String homeScore = clusterObject.get("scores").getAsJsonArray().get(0).getAsJsonObject().get("score").getAsString();
                 String awayScore = clusterObject.get("scores").getAsJsonArray().get(1).getAsJsonObject().get("score").getAsString();
-
+                String homeTeam = clusterObject.get("home_team").getAsString();
+                String awayTeam = clusterObject.get("away_team").getAsString();
                 Log.d( "Home Score: "  ,homeScore);
                 Log.d( "Away Score: "  ,awayScore);
                 if(Integer.parseInt(homeScore)>Integer.parseInt(awayScore))
-                    eventlist.getWinner("home");
+                    eventlist.getWinner(homeTeam);
                 else
-                    eventlist.getWinner("away");
-
-
+                    eventlist.getWinner(awayTeam);
                 break;
             }
         }
