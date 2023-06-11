@@ -25,7 +25,7 @@ public class eventlist extends AppCompatActivity {
 
     static String score="";
 
-    static String currentstatus="pause";
+    static String currentstatus="pending";
     String sport="",teams="";
     static String eventId="";
     String eventApiId="";
@@ -37,6 +37,8 @@ public class eventlist extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eventlist);
+        overridePendingTransition(0, 0);
+        getSupportActionBar().hide();
         readCoupons();
     }
 
@@ -121,7 +123,7 @@ public class eventlist extends AppCompatActivity {
 //            float eventOdds=0;
 //            String betWinner="";
 //            String betStatus="";
-        if(!score.equals(bettype)&&!currentstatus.equals("pending"))
+        if(!score.equals(betWinner)&&!currentstatus.equals("pending"))
             currentstatus="failed";
         else
             currentstatus="succes";
@@ -135,9 +137,10 @@ public class eventlist extends AppCompatActivity {
                 betscore.setText(score);
                 //betstatus.setImageIcon(); currentstatus
                 layout.addView(view);
+                Log.d( "onStatusRequestComplete: ",currentstatus);
+                Log.d( "onStatusRequestComplete: ",betStatus);
                 if(!currentstatus.equals(betStatus))
                     updateStatus(currentstatus,eventId);
-                currentstatus="pause";
             }
         });
         getStatus.execute();
