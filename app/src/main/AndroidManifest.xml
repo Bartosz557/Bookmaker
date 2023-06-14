@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bookmaker"
         tools:targetApi="31">
-        <service android:name=".SendNoti" />
+        <service android:name=".SendStatusNoti" />
 
         <activity
             android:name=".eventlist"
@@ -23,13 +23,13 @@
             android:name=".couponslist"
             android:exported="false" />
         <activity
-            android:name=".coupon_full_screen"
+            android:name=".couponFullScreen"
             android:exported="false" />
         <activity
-            android:name=".polityka"
+            android:name=".politics"
             android:exported="false" />
         <activity
-            android:name=".krykiet"
+            android:name=".cricket"
             android:exported="false" />
         <activity
             android:name=".baseball"
@@ -44,7 +44,7 @@
             android:name=".footballUS"
             android:exported="false" />
         <activity
-            android:name=".hokej"
+            android:name=".hockey"
             android:exported="false" />
         <activity
             android:name=".golf"
@@ -53,7 +53,7 @@
             android:name=".mma"
             android:exported="false" />
         <activity
-            android:name=".koszykowka"
+            android:name=".basketball"
             android:exported="false" />
         <activity
             android:name=".tennis"
@@ -65,7 +65,7 @@
             android:name=".mainpage"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".mainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

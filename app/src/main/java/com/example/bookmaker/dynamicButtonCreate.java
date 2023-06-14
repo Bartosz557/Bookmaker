@@ -8,11 +8,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import android.content.res.Resources;
-import android.graphics.Color;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
 import android.util.Log;
 import android.view.*;
 import android.content.Context;
@@ -23,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class DynamicButtonCreate  extends AppCompatActivity {
+public class dynamicButtonCreate extends AppCompatActivity {
 
     private JsonArray jsonArray;
     private List<JsonObject> jsonObjectList;
@@ -34,7 +30,7 @@ public class DynamicButtonCreate  extends AppCompatActivity {
     private View currentView;
     private int eventnumber;
     private String sport;
-    public DynamicButtonCreate(Context context, LinearLayout parentlayout, String events,boolean arg, View currentView,String sport)
+    public dynamicButtonCreate(Context context, LinearLayout parentlayout, String events, boolean arg, View currentView, String sport)
     {
         this.sport=sport;
         this.events=events;
@@ -95,8 +91,8 @@ public class DynamicButtonCreate  extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d( "onClick: ",id);
-                Coupon.addEventToCoupon(id,odd,ht,at,0,sport);
-                Coupon.setCouponBox(currentView);
+                coupon.addEventToCoupon(id,odd,ht,at,0,sport);
+                coupon.setCouponBox(currentView);
             }
         });
         button.setWidth(305);
@@ -120,8 +116,8 @@ public class DynamicButtonCreate  extends AppCompatActivity {
                     Toast.makeText(context, "Brak mozliwosci remisu", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Coupon.addEventToCoupon(id,odd,ht,at,1,sport);
-                    Coupon.setCouponBox(currentView);
+                    coupon.addEventToCoupon(id,odd,ht,at,1,sport);
+                    coupon.setCouponBox(currentView);
                 }
             }
         });
@@ -144,8 +140,8 @@ public class DynamicButtonCreate  extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(context, "right", Toast.LENGTH_SHORT).show();
                 Log.d( "onClick: ",id);
-                Coupon.addEventToCoupon(id,odd,ht,at,2,sport);
-                Coupon.setCouponBox(currentView);            }
+                coupon.addEventToCoupon(id,odd,ht,at,2,sport);
+                coupon.setCouponBox(currentView);            }
         });
         button.setWidth(305);
         button.setHeight(150);

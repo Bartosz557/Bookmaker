@@ -7,11 +7,10 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Coupon extends AppCompatActivity {
+public class coupon extends AppCompatActivity {
 
     private static Map<String, String[]> addedEvents = new HashMap<String, String[]>();
     private static double multiplier,price,winPrice;

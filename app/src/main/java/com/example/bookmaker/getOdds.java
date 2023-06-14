@@ -4,22 +4,13 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
-import androidx.constraintlayout.widget.ConstraintLayout;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import java.io.IOException;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import java.io.IOException;
-import java.lang.invoke.ConstantCallSite;
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
 
-public class GetOdds extends AsyncTask<Void, Void, String> {
+public class getOdds extends AsyncTask<Void, Void, String> {
 
     private String sport;
     private Context context;
@@ -30,7 +21,7 @@ public class GetOdds extends AsyncTask<Void, Void, String> {
     private View currentView;
 
 
-    public GetOdds(Context context, LinearLayout layout, String sport,boolean arg,boolean lastarray, View currentView)
+    public getOdds(Context context, LinearLayout layout, String sport, boolean arg, boolean lastarray, View currentView)
     {
         this.sport=sport;
         this.context=context;
@@ -82,13 +73,13 @@ public class GetOdds extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         if(result.length()>5) {
-            DynamicButtonCreate sendevents = new DynamicButtonCreate(context, layout, result, arg, currentView,sport);
+            dynamicButtonCreate sendevents = new dynamicButtonCreate(context, layout, result, arg, currentView,sport);
             sendevents.getEvents();
             emptylayout=false;
         }else
         {
             if(lastarray&&emptylayout) {
-                NoEventsNoti.noEvents(context, layout);
+                noEventsNoti.noEvents(context, layout);
                 Log.d("result", "break zdarzen");
             }
         }

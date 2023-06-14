@@ -1,14 +1,8 @@
 package com.example.bookmaker;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.content.Context;
-import android.os.AsyncTask;
-import android.util.Log;
-import android.view.View;
-import android.widget.LinearLayout;
-import androidx.constraintlayout.widget.ConstraintLayout;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -72,7 +66,7 @@ public class statusRequest extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         if (!result.equals("fail")) {
-            GetStatus getS = new GetStatus();
+            getStatus getS = new getStatus();
             getS.getResponse(sport,result,id);
         }else
         {

@@ -16,7 +16,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class coupon_full_screen extends AppCompatActivity {
+public class couponFullScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,23 +61,23 @@ public class coupon_full_screen extends AppCompatActivity {
     public void setOdd()
     {
         TextView oddText = findViewById(R.id.oddTV);
-        oddText.setText(Double.toString(Math.round((Coupon.setMultiplier()) * 100.0) / 100.0));
+        oddText.setText(Double.toString(Math.round((coupon.setMultiplier()) * 100.0) / 100.0));
     }
 
     public void setPotentialWin()
     {
         TextView winPriceText = findViewById(R.id.pWin);
         EditText priceStake = findViewById(R.id.stake);
-        winPriceText.setText(Double.toString(Coupon.setWinPrice(priceStake)));
+        winPriceText.setText(Double.toString(coupon.setWinPrice(priceStake)));
     }
 
     public void betClick(View view)
     {
-        int result = Coupon.tryToBet();
+        int result = coupon.tryToBet();
         switch(result) {
             case 0: {
                 SQLiteDatabase myDB = openOrCreateDatabase("my.db", Context.MODE_PRIVATE, null);
-                Coupon.createCoupon(myDB);
+                coupon.createCoupon(myDB);
                 finish();
                 break;
             }

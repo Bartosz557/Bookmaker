@@ -1,22 +1,21 @@
 package com.example.bookmaker;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 
-public class krykiet extends setCouponClick {
+public class politics extends setCouponClick {
 
     private static View couponBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_krykiet);
+        setContentView(R.layout.activity_polityka);
         couponBox=findViewById(R.id.couponbox);
-        Coupon.setCouponBox(couponBox);
+        coupon.setCouponBox(couponBox);
         overridePendingTransition(0, 0);
         getSupportActionBar().hide();
+
     }
     @Override
     protected void onPause() {

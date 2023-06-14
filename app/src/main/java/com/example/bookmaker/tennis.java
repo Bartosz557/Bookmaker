@@ -1,7 +1,5 @@
 package com.example.bookmaker;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 
@@ -13,7 +11,7 @@ public class tennis extends setCouponClick {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tennis);
         couponBox=findViewById(R.id.couponbox);
-        Coupon.setCouponBox(couponBox);
+        coupon.setCouponBox(couponBox);
         overridePendingTransition(0, 0);
         getSupportActionBar().hide();
     }

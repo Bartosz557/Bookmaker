@@ -1,14 +1,10 @@
 package com.example.bookmaker;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.util.Log;
 
 public class mainpage extends AppCompatActivity {
 
@@ -18,7 +14,7 @@ public class mainpage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainpage);
         couponBox=findViewById(R.id.couponbox);
-        Coupon.setCouponBox(couponBox);
+        coupon.setCouponBox(couponBox);
         overridePendingTransition(0, 0);
         getSupportActionBar().hide();
     }
@@ -26,7 +22,7 @@ public class mainpage extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        Coupon.setCouponBox(couponBox);
+        coupon.setCouponBox(couponBox);
     }
 
     //buttons
@@ -48,7 +44,7 @@ public class mainpage extends AppCompatActivity {
     }
     public void koszykowka(View view)
     {
-        Intent i = new Intent(this,koszykowka.class);
+        Intent i = new Intent(this, basketball.class);
         startActivity(i);
     }
     public void mma(View view)
@@ -63,7 +59,7 @@ public class mainpage extends AppCompatActivity {
     }
     public void hokej(View view)
     {
-        Intent i = new Intent(this,hokej.class);
+        Intent i = new Intent(this, hockey.class);
         startActivity(i);
     }
     public void footballus(View view)
@@ -88,12 +84,12 @@ public class mainpage extends AppCompatActivity {
     }
     public void krykiet(View view)
     {
-        Intent i = new Intent(this,krykiet.class);
+        Intent i = new Intent(this, cricket.class);
         startActivity(i);
     }
     public void polityka(View view)
     {
-        Intent i = new Intent(this,polityka.class);
+        Intent i = new Intent(this, politics.class);
         startActivity(i);
     }
 

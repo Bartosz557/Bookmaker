@@ -1,7 +1,5 @@
 package com.example.bookmaker;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -15,7 +13,7 @@ public class footballAUS extends setCouponClick {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_football_aus);
         couponBox=findViewById(R.id.couponbox);
-        Coupon.setCouponBox(couponBox);
+        coupon.setCouponBox(couponBox);
         overridePendingTransition(0, 0);
         getSupportActionBar().hide();
         LinearLayout layout = findViewById(R.id.ausfootballparent);
@@ -27,7 +25,7 @@ public class footballAUS extends setCouponClick {
         for(int i=0;i<sports.length;i++) {
             if(i==sports.length-1)
                 lastarray=true;
-            GetOdds getOdds = new GetOdds(this,layout,sports[i],createHeader,lastarray,couponBox);
+            getOdds getOdds = new getOdds(this,layout,sports[i],createHeader,lastarray,couponBox);
             getOdds.execute();
         }
     }

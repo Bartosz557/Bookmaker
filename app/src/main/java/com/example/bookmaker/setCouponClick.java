@@ -10,7 +10,7 @@ public class setCouponClick extends AppCompatActivity {
     public void setOnlickCouponBox(View view)
     {
         Log.d( "setOnlickCouponBox: ","clicked");
-        Intent i = new Intent(this,coupon_full_screen.class);
+        Intent i = new Intent(this, couponFullScreen.class);
         startActivity(i);
     }
 }

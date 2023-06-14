@@ -10,7 +10,7 @@ import android.view.Gravity;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class NoEventsNoti {
+public class noEventsNoti {
     public static void noEvents(Context context, LinearLayout parentlayout)
     {
         TextView textView = new TextView(context);

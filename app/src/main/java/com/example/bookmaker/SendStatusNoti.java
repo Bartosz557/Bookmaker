@@ -15,7 +15,7 @@ import android.os.IBinder;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
-public class SendNoti extends Service {
+public class SendStatusNoti extends Service {
     private boolean finished=true;
     private static final String CHANNEL_ID = "MyChannelId";
     private static final int NOTIFICATION_ID = 1;
@@ -118,7 +118,7 @@ public class SendNoti extends Service {
     }
     private void sendNotification(String message) {
         createNotificationChannel();
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, mainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.notification_icon)
@@ -145,7 +145,7 @@ public class SendNoti extends Service {
     }
     private void setupPeriodicTask() {
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(this, SendNoti.class);
+        Intent intent = new Intent(this, SendStatusNoti.class);
         PendingIntent pendingIntent = PendingIntent.getService(this, REQUEST_CODE, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         long intervalMillis = 60 * 60 * 1000;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
